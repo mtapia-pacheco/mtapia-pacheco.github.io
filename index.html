@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mario Tapia-Pacheco — Data Science, Machine Learning, Bioinformatics, and Applied AI." />
+  <title>Mario Tapia-Pacheco | Data Science & AI</title>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --light: #f8fafc;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --card: #ffffff;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --max-width: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 4.5rem 0 2.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      margin: 1rem auto 0;
+      color: #374151;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      max-width: 820px;
+    }
+
+    .affiliation {
+      margin: 0.75rem auto 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .link-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1.75rem 0 0;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      background: #111827;
+      color: #ffffff;
+      font-weight: 650;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 20px rgba(17, 24, 39, 0.12);
+    }
+
+    .button:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      background: #000000;
+    }
+
+    .button.secondary {
+      background: var(--accent);
+    }
+
+    .button.secondary:hover {
+      background: var(--accent-dark);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.35rem;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    main { padding: 2.5rem 0 4rem; }
+
+    section {
+      margin: 0 auto 3rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      margin: 0 0 1.2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-lead {
+      text-align: center;
+      color: var(--muted);
+      max-width: 780px;
+      margin: 0 auto 1.75rem;
+      font-size: 1.05rem;
+    }
+
+    .abstract {
+      max-width: 820px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    .highlight {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.35rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+      line-height: 1.3;
+    }
+
+    .card .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin: 0 0 0.65rem;
+    }
+
+    .card p {
+      margin: 0.55rem 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 650;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      color: #334155;
+      background: #eef2ff;
+      border: 1px solid #dbeafe;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0.9rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1rem;
+      padding: 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+    }
+
+    .date {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .item h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .item p {
+      margin: 0.4rem 0 0;
+      color: #374151;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .skill-block {
+      border: 1px solid var(--border);
+      background: var(--light);
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+    }
+
+    .skill-block h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+    }
+
+    .skill-block p {
+      margin: 0;
+      color: #4b5563;
+    }
+
+    .contact-box {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    form {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1.25rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+      font: inherit;
+      color: var(--text);
+      background: #ffffff;
+    }
+
+    input:focus, textarea:focus {
+      outline: 3px solid rgba(37, 99, 235, 0.15);
+      border-color: var(--accent);
+    }
+
+    button {
+      width: fit-content;
+      justify-self: center;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.75rem 1.35rem;
+      background: var(--accent);
+      color: white;
+      font-weight: 750;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    button:hover { background: var(--accent-dark); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .hero { padding-top: 3rem; }
+      .nav-inner { gap: 0.8rem; padding: 0.75rem 0; }
+      .item { grid-template-columns: 1fr; gap: 0.3rem; }
+      .button { width: 100%; max-width: 260px; }
+      .link-bar { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>Mario Tapia-Pacheco</h1>
+      <p class="subtitle">Data Science • Machine Learning • Bioinformatics • Applied AI</p>
+      <p class="affiliation">
+        M.S. Data Science, University of California, San Diego &nbsp;•&nbsp;
+        B.S. Statistics and Data Science, University of California, Santa Barbara
+      </p>
+
+      <div class="link-bar" aria-label="Primary links">
+        <a class="button secondary" href="mailto:mtap1121@gmail.com">Email</a>
+        <a class="button" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <a class="button" href="cv.pdf" target="_blank" rel="noopener">CV</a>
+        <a class="button" href="https://github.com/mtapia-pacheco" target="_blank" rel="noopener">GitHub</a>
+        <a class="button" href="https://www.linkedin.com/in/mariotapiapacheco" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Page navigation">
+    <div class="container nav-inner">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <div class="abstract highlight">
+        <p>
+          I am a data science graduate student at UC San Diego interested in building machine learning and AI systems
+          for biomedical research, genomics, and applied decision-making. My work spans genomic foundation models,
+          LLM-powered retrieval systems, predictive modeling, and real-world data analysis across health, life sciences,
+          and applied domains.
+        </p>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2 class="section-title">Research</h2>
+      <p class="section-lead">
+        Current research interests include DNA foundation models, genomic sequence representation, benchmark design,
+        and AI systems for scientific discovery.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>EvoLen: DNA Foundation Model Tokenization</h3>
+          <p class="meta">UC San Diego, The Amariuta Lab • 2026–Present</p>
+          <p>
+            Contributing to research on tokenization strategies for genomic foundation models and benchmarking model
+            performance across genomic prediction tasks.
+          </p>
+          <p><a href="https://arxiv.org/abs/2604.08698" target="_blank" rel="noopener">Read preprint</a></p>
+          <div class="tags">
+            <span class="tag">Genomics</span>
+            <span class="tag">Transformers</span>
+            <span class="tag">Benchmarking</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>GenomicDiscoveryGym</h3>
+          <p class="meta">AI scientist benchmark • 2026–Present</p>
+          <p>
+            Supporting an early-stage benchmark for evaluating AI scientist systems on genomics discovery workflows,
+            including dataset preparation, evaluation pipelines, and results analysis.
+          </p>
+          <div class="tags">
+            <span class="tag">AI Agents</span>
+            <span class="tag">Bioinformatics</span>
+            <span class="tag">Evaluation</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-lead">
+        Selected projects in applied machine learning, LLM applications, predictive analytics, and scientific data analysis.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>LLM-Powered Book Recommender System</h3>
+          <p class="meta">Semantic retrieval and recommendation • January 2026</p>
+          <p>
+            Built an end-to-end recommendation system using LangChain, Hugging Face, Chroma, vector search, and
+            zero-shot classification over thousands of book descriptions.
+          </p>
+          <p>
+            Optimized transformer inference and text-processing workflows through batching, truncation, and document
+            chunking, reducing runtime from hours to minutes.
+          </p>
+          <p><a href="https://github.com/mtapia-pacheco/book-recommender" target="_blank" rel="noopener">View on GitHub</a></p>
+          <div class="tags">
+            <span class="tag">LLMs</span>
+            <span class="tag">Embeddings</span>
+            <span class="tag">Vector Search</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>California Property Close Price Prediction</h3>
+          <p class="meta">IDX Exchange • Summer 2026</p>
+          <p>
+            Collaborating in a five-person team to build a machine learning pipeline for predicting California
+            single-family property close prices using historical CRMLS sales data.
+          </p>
+          <p>
+            Work includes preprocessing, feature engineering, regression modeling, and evaluation using R², MAPE,
+            and MdAPE.
+          </p>
+          <div class="tags">
+            <span class="tag">Regression</span>
+            <span class="tag">Feature Engineering</span>
+            <span class="tag">Model Evaluation</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>PhysioNet Challenge 2026</h3>
+          <p class="meta">Healthcare ML • In progress</p>
+          <p>
+            Working on machine learning approaches for clinical time-series and sleep-study data, including feature
+            engineering, transformer-based modeling, and evaluation for cognitive impairment prediction.
+          </p>
+          <div class="tags">
+            <span class="tag">Healthcare ML</span>
+            <span class="tag">Time Series</span>
+            <span class="tag">Transformers</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>CHIRPS 3.0 Evaluation</h3>
+          <p class="meta">UCSB Climate Hazards Center • 2024</p>
+          <p>
+            Applied statistical and time-series analysis to evaluate daily precipitation dataset performance across
+            multiple CHIRPS 3.0 versions.
+          </p>
+          <p>
+            <a href="https://docs.google.com/presentation/d/1M8kBC1jDJiCYL58R-44FZu4I3aJbWjX_o558sDIF_oY/edit?usp=sharing" target="_blank" rel="noopener">View research poster</a>
+          </p>
+          <div class="tags">
+            <span class="tag">Time Series</span>
+            <span class="tag">Climate Data</span>
+            <span class="tag">Statistics</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+        <article class="item">
+          <div class="date">Mar 2026–Present</div>
+          <div>
+            <h3>Research Assistant, AI/ML for Genomics — UC San Diego, The Amariuta Lab</h3>
+            <p>
+              Contributing to genomic foundation model research, benchmarking, dataset preparation, model evaluation,
+              and early-stage AI scientist benchmark development.
+            </p>
+          </div>
+        </article>
+
+        <article class="item">
+          <div class="date">Jun 2026–Present</div>
+          <div>
+            <h3>Data Science Intern — IDX Exchange</h3>
+            <p>
+              Building predictive modeling workflows for California residential real estate close price prediction using
+              historical CRMLS sales data.
+            </p>
+          </div>
+        </article>
+
+        <article class="item">
+          <div class="date">Nov 2025–Apr 2026</div>
+          <div>
+            <h3>Graduate-Level Evaluation Intern — UC San Diego Center for Community Health</h3>
+            <p>
+              Cleaned and validated survey/program evaluation datasets, produced visual analyses, and translated findings
+              into stakeholder-facing recommendations for program improvement.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills">
+        <div class="skill-block">
+          <h3>Programming</h3>
+          <p>Python, R, SQL</p>
+        </div>
+        <div class="skill-block">
+          <h3>Machine Learning & AI</h3>
+          <p>PyTorch, TensorFlow/Keras, Scikit-learn, Hugging Face, LangChain, Chroma</p>
+        </div>
+        <div class="skill-block">
+          <h3>Data & Tools</h3>
+          <p>Pandas, NumPy, Matplotlib, Git/GitHub, AWS, Tableau, Power BI, Excel</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-box highlight">
+        <p>
+          I am open to opportunities in data science, machine learning, bioinformatics, biomedical AI, and applied AI systems.
+        </p>
+        <p>
+          Email: <a href="mailto:mtap1121@gmail.com">mtap1121@gmail.com</a>
+        </p>
+
+        <form action="https://formspree.io/f/xldqkbya" method="POST">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <textarea name="message" rows="4" placeholder="Your message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Mario Tapia-Pacheco • Hosted on GitHub Pages • Inspired by the Nerfies project page template
+  </footer>
+</body>
+</html>
